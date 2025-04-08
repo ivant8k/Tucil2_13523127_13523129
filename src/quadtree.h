@@ -2,44 +2,36 @@
 #define QUADTREE_H
 
 #include <vector>
-#include <memory>
 #include <string>
 
-struct Pixel {
-    unsigned char r, g, b;
+enum Color { BLACK, WHITE, MIXED };
+
+struct QuadTreeNode {
+    Color color;
+    QuadTreeNode* children[4]; // Urutan: top-left, top-right, bottom-left, bottom-right
+
+    QuadTreeNode(Color c);
+    ~QuadTreeNode();
 };
 
-struct QuadNode {
-    int x, y, width, height;
-    Pixel color;
-    std::unique_ptr<QuadNode> children[4]; // NW, NE, SW, SE
-    bool isLeaf;
-
-    QuadNode(int x, int y, int w, int h);
-};
-
-class Quadtree {
+class QuadTree {
 private:
-    std::unique_ptr<QuadNode> root;
-    std::vector<Pixel> image;
-    int imgWidth, imgHeight;
-    int minBlockSize;
-    double threshold;
-    int errorMethod;
+    QuadTreeNode* root;
 
-    double calculateError(const std::vector<Pixel>& block);
-    double calculateVariance(const std::vector<Pixel>& block);
-    double calculateMAD(const std::vector<Pixel>& block);
-    double calculateMaxDiff(const std::vector<Pixel>& block);
-    double calculateEntropy(const std::vector<Pixel>& block);
-    Pixel calculateAverageColor(const std::vector<Pixel>& block);
-    void buildQuadtree(std::unique_ptr<QuadNode>& node);
-    void reconstructImage(std::unique_ptr<QuadNode>& node, std::vector<Pixel>& output);
+    QuadTreeNode* build(const std::vector<std::vector<Color>>& image, int x, int y, int size);
+    void destroy(QuadTreeNode* node);
+    void serialize(QuadTreeNode* node, std::vector<char>& result);
+    void deserializeHelper(const std::vector<char>& data, int& index, QuadTreeNode*& node);
+    void reconstruct(QuadTreeNode* node, std::vector<std::vector<Color>>& image, int x, int y, int size);
 
 public:
-    Quadtree(const std::string& filename, int method, double thresh, int minSize);
-    void compress();
-    void saveCompressedImage(const std::string& filename);
+    QuadTree();
+    ~QuadTree();
+
+    void compress(const std::vector<std::vector<Color>>& image);
+    void decompress(std::vector<std::vector<Color>>& image, int size);
+    std::vector<char> serialize();
+    void deserialize(const std::vector<char>& data);
 };
 
 #endif
