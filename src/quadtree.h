@@ -3,35 +3,49 @@
 
 #include <vector>
 #include <string>
+#include <memory>
 
-enum Color { BLACK, WHITE, MIXED };
+using namespace std;
 
-struct QuadTreeNode {
-    Color color;
-    QuadTreeNode* children[4]; // Urutan: top-left, top-right, bottom-left, bottom-right
+// Structure to store RGB values of a pixel
+struct Pixel {
+    unsigned char r, g, b;
+};
 
-    QuadTreeNode(Color c);
+// Structure to store statistics of a block
+struct BlockStats {
+    double meanR, meanG, meanB;
+    double varianceR, varianceG, varianceB;
+    double madR, madG, madB;
+    double maxDiffR, maxDiffG, maxDiffB;
+    double entropyR, entropyG, entropyB;
+};
+
+// QuadTree node structure
+class QuadTreeNode {
+public:
+    int x, y, size;
+    bool isLeaf;
+    Pixel avgColor;
+    QuadTreeNode* children[4]; // NW, NE, SW, SE
+
+    QuadTreeNode(int x, int y, int size);
     ~QuadTreeNode();
 };
 
-class QuadTree {
-private:
-    QuadTreeNode* root;
+// Function declarations
+double calculateVariance(const vector<vector<Pixel>>& data, int x, int y, int size);
+double calculateMAD(const vector<vector<Pixel>>& data, int x, int y, int size);
+double calculateMaxDiff(const vector<vector<Pixel>>& data, int x, int y, int size);
+double calculateEntropy(const vector<vector<Pixel>>& data, int x, int y, int size);
+BlockStats calculateBlockStats(const vector<vector<Pixel>>& data, int x, int y, int size);
+Pixel calculateAvgColor(const vector<vector<Pixel>>& data, int x, int y, int size);
+double calculateError(const vector<vector<Pixel>>& data, int x, int y, int size, int method);
+QuadTreeNode* buildQuadTree(const vector<vector<Pixel>>& data, int x, int y, int size, double threshold, int minBlockSize, int method, int depth = 0);
+void reconstructImage(const QuadTreeNode* node, vector<vector<Pixel>>& outputImage);
+bool saveQuadTreeImage(const string& filename, const vector<vector<Pixel>>& image);
+int countNodes(const QuadTreeNode* node);
+int getTreeDepth(const QuadTreeNode* node);
+bool generateGif(const string& filename, const QuadTreeNode* root, int width, int height);
 
-    QuadTreeNode* build(const std::vector<std::vector<Color>>& image, int x, int y, int size);
-    void destroy(QuadTreeNode* node);
-    void serialize(QuadTreeNode* node, std::vector<char>& result);
-    void deserializeHelper(const std::vector<char>& data, int& index, QuadTreeNode*& node);
-    void reconstruct(QuadTreeNode* node, std::vector<std::vector<Color>>& image, int x, int y, int size);
-
-public:
-    QuadTree();
-    ~QuadTree();
-
-    void compress(const std::vector<std::vector<Color>>& image);
-    void decompress(std::vector<std::vector<Color>>& image, int size);
-    std::vector<char> serialize();
-    void deserialize(const std::vector<char>& data);
-};
-
-#endif
+#endif // QUADTREE_H
