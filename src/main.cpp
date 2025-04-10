@@ -47,9 +47,9 @@ int main(int argc, char** argv) {
     cout << "Enter absolute path for output image: ";
     cin >> outputFilePath;
 
-    cout << "Enter absolute path for GIF output (leave empty to skip): ";
-    cin.ignore(); // Clear newline
-    getline(cin, gifOutputPath);
+    //cout << "Enter absolute path for GIF output (leave empty to skip): ";
+    //cin.ignore(); // Clear newline
+    //getline(cin, gifOutputPath);
 
     // Load image
     int imageWidth, imageHeight, imageChannels;
@@ -140,10 +140,10 @@ int main(int argc, char** argv) {
         cerr << "Error: Could not save output image" << endl;
     }
 
-    // Generate GIF if path provided
-    if (!gifOutputPath.empty()) {
-        generateGif(gifOutputPath, root, imageWidth, imageHeight);
-    }
+    // // Generate GIF if path provided
+    // if (!gifOutputPath.empty()) {
+    //     generateGif(gifOutputPath, root, imageWidth, imageHeight);
+    // }
 
     // Calculate compressed size (approximate, based on QuadTree nodes)
     size_t compressedSize = totalNodes * sizeof(QuadTreeNode); // Simple approximation

@@ -191,7 +191,8 @@ double calculateError(const vector<vector<Pixel>>& data, int x, int y, int size,
 }
 
 // Build QuadTree using divide and conquer approach
-QuadTreeNode* buildQuadTree(const vector<vector<Pixel>>& data, int x, int y, int size, double threshold, int minBlockSize, int method, int depth) {
+QuadTreeNode* buildQuadTree(const vector<vector<Pixel>>& data, int x, int y, int size, 
+                           double threshold, int minBlockSize, int method, int depth) {
     QuadTreeNode* node = new QuadTreeNode(x, y, size);
     
     // Calculate error for the current block

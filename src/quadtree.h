@@ -46,6 +46,6 @@ void reconstructImage(const QuadTreeNode* node, vector<vector<Pixel>>& outputIma
 bool saveQuadTreeImage(const string& filename, const vector<vector<Pixel>>& image);
 int countNodes(const QuadTreeNode* node);
 int getTreeDepth(const QuadTreeNode* node);
-bool generateGif(const string& filename, const QuadTreeNode* root, int width, int height);
+//bool generateGif(const string& filename, const QuadTreeNode* root, int width, int height);
 
 #endif // QUADTREE_H
