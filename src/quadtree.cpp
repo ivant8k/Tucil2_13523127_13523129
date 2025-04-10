@@ -152,69 +152,164 @@ BlockStats calculateBlockStats(const vector<vector<Pixel>>& data, int x, int y, 
 }
 
 // Calculate variance error
-double calculateVariance(const vector<vector<Pixel>>& data, int x, int y, int size) {
-    BlockStats stats = calculateBlockStats(data, x, y, size);
-    double avgVariance = (stats.varianceR + stats.varianceG + stats.varianceB) / 3.0;
-    return avgVariance;
+double calculateVariance(vector<vector<Pixel>>& data, int x, int y, int size, Pixel avgColor) {
+    double varR = 0.0, varG = 0.0, varB = 0.0;
+    int count = 0;
+    
+    // Hitung varians untuk setiap channel warna
+    for (int j = y; j < y + size && j < data.size(); j++) {
+        for (int i = x; i < x + size && i < data[j].size(); i++) {
+            double dr = data[j][i].r - avgColor.r;
+            double dg = data[j][i].g - avgColor.g;
+            double db = data[j][i].b - avgColor.b;
+            
+            varR += dr * dr;
+            varG += dg * dg;
+            varB += db * db;
+            count++;
+        }
+    }
+    
+    // Bagi dengan jumlah pixel untuk mendapatkan varians
+    if (count > 0) {
+        varR /= count;
+        varG /= count;
+        varB /= count;
+    }
+    
+    // Rata-rata varians dari 3 channel
+    return (varR + varG + varB) / 3.0;
 }
 
 // Calculate Mean Absolute Deviation (MAD) error
-double calculateMAD(const vector<vector<Pixel>>& data, int x, int y, int size) {
-    BlockStats stats = calculateBlockStats(data, x, y, size);
-    double avgMAD = (stats.madR + stats.madG + stats.madB) / 3.0;
-    return avgMAD;
+double calculateMAD(vector<vector<Pixel>>& data, int x, int y, int size, Pixel avgColor) {
+    double madR = 0.0, madG = 0.0, madB = 0.0;
+    int count = 0;
+    
+    // Hitung MAD untuk setiap channel warna
+    for (int j = y; j < y + size && j < data.size(); j++) {
+        for (int i = x; i < x + size && i < data[j].size(); i++) {
+            madR += abs(data[j][i].r - avgColor.r);
+            madG += abs(data[j][i].g - avgColor.g);
+            madB += abs(data[j][i].b - avgColor.b);
+            count++;
+        }
+    }
+    
+    // Bagi dengan jumlah pixel untuk mendapatkan MAD
+    if (count > 0) {
+        madR /= count;
+        madG /= count;
+        madB /= count;
+    }
+    
+    // Rata-rata MAD dari 3 channel
+    return (madR + madG + madB) / 3.0;
 }
 
-// Calculate Max Pixel Difference error
-double calculateMaxDiff(const vector<vector<Pixel>>& data, int x, int y, int size) {
-    BlockStats stats = calculateBlockStats(data, x, y, size);
-    double avgMaxDiff = (stats.maxDiffR + stats.maxDiffG + stats.maxDiffB) / 3.0;
-    return avgMaxDiff;
+double calculateMaxDifference(vector<vector<Pixel>>& data, int x, int y, int size) {
+    unsigned char minR = 255, minG = 255, minB = 255;
+    unsigned char maxR = 0, maxG = 0, maxB = 0;
+    
+    // Cari nilai min dan max untuk setiap channel
+    for (int j = y; j < y + size && j < data.size(); j++) {
+        for (int i = x; i < x + size && i < data[j].size(); i++) {
+            // Update min values
+            minR = min(minR, data[j][i].r);
+            minG = min(minG, data[j][i].g);
+            minB = min(minB, data[j][i].b);
+            
+            // Update max values
+            maxR = max(maxR, data[j][i].r);
+            maxG = max(maxG, data[j][i].g);
+            maxB = max(maxB, data[j][i].b);
+        }
+    }
+    
+    // Hitung selisih max-min untuk tiap channel
+    double diffR = maxR - minR;
+    double diffG = maxG - minG;
+    double diffB = maxB - minB;
+    
+    // Rata-rata selisih dari 3 channel
+    return (diffR + diffG + diffB) / 3.0;
 }
 
-// Calculate Entropy error
-double calculateEntropy(const vector<vector<Pixel>>& data, int x, int y, int size) {
-    BlockStats stats = calculateBlockStats(data, x, y, size);
-    double avgEntropy = (stats.entropyR + stats.entropyG + stats.entropyB) / 3.0;
-    return avgEntropy;
+double calculateEntropy(vector<vector<Pixel>>& data, int x, int y, int size) {
+    // Hitung histogram untuk setiap channel
+    const int BINS = 256;
+    vector<int> histR(BINS, 0), histG(BINS, 0), histB(BINS, 0);
+    int totalPixels = 0;
+    
+    for (int j = y; j < y + size && j < data.size(); j++) {
+        for (int i = x; i < x + size && i < data[j].size(); i++) {
+            histR[data[j][i].r]++;
+            histG[data[j][i].g]++;
+            histB[data[j][i].b]++;
+            totalPixels++;
+        }
+    }
+    
+    // Hitung entropy untuk masing-masing channel
+    double entropyR = 0.0, entropyG = 0.0, entropyB = 0.0;
+    for (int i = 0; i < BINS; i++) {
+        if (histR[i] > 0) {
+            double pR = (double)histR[i] / totalPixels;
+            entropyR -= pR * log2(pR);
+        }
+        if (histG[i] > 0) {
+            double pG = (double)histG[i] / totalPixels;
+            entropyG -= pG * log2(pG);
+        }
+        if (histB[i] > 0) {
+            double pB = (double)histB[i] / totalPixels;
+            entropyB -= pB * log2(pB);
+        }
+    }
+    
+    // Rata-rata entropy dari ketiga channel
+    return (entropyR + entropyG + entropyB) / 3.0;
 }
 
-// Calculate error based on selected method
-double calculateError(const vector<vector<Pixel>>& data, int x, int y, int size, int method) {
+// Implementasi calculateError di quadtree.cpp
+double calculateError(vector<vector<Pixel>>& data, int x, int y, int size, Pixel avgColor, int method) {
     switch (method) {
-        case 1: return calculateVariance(data, x, y, size);
-        case 2: return calculateMAD(data, x, y, size);
-        case 3: return calculateMaxDiff(data, x, y, size);
-        case 4: return calculateEntropy(data, x, y, size);
-        default: return calculateVariance(data, x, y, size);
+        case 1: // Variance
+            return calculateVariance(data, x, y, size, avgColor);
+        case 2: // Mean Absolute Deviation (MAD)
+            return calculateMAD(data, x, y, size, avgColor);
+        case 3: // Max Pixel Difference
+            return calculateMaxDifference(data, x, y, size);
+        case 4: // Entropy
+            return calculateEntropy(data, x, y, size);
+        default:
+            return calculateVariance(data, x, y, size, avgColor); // Default to variance
     }
 }
 
 // Build QuadTree using divide and conquer approach
-QuadTreeNode* buildQuadTree(const vector<vector<Pixel>>& data, int x, int y, int size, 
-                           double threshold, int minBlockSize, int method, int depth) {
+QuadTreeNode* buildQuadTree(const vector<vector<Pixel>>& data, int x, int y, int size, double threshold, int minBlockSize, int method, int depth) {
     QuadTreeNode* node = new QuadTreeNode(x, y, size);
-    
-    // Calculate error for the current block
-    double error = calculateError(data, x, y, size, method);
-    
-    // Calculate average color for this block
-    node->avgColor = calculateAvgColor(data, x, y, size);
-    
-    // Check if we should subdivide this block
+
+    // Hitung warna rata-rata terlebih dahulu
+    Pixel avgColor = calculateAvgColor(data, x, y, size);
+    node->avgColor = avgColor;
+
+    // Hitung error dengan parameter yang benar
+    double error = calculateError(const_cast<vector<vector<Pixel>>&>(data), x, y, size, avgColor, method);
+
     if (error > threshold && size > minBlockSize && size / 2 >= minBlockSize) {
-        node->isLeaf = false;
-        int halfSize = size / 2;
-        
-        // Create the four children (NW, NE, SW, SE)
-        node->children[0] = buildQuadTree(data, x, y, halfSize, threshold, minBlockSize, method, depth + 1);
-        node->children[1] = buildQuadTree(data, x + halfSize, y, halfSize, threshold, minBlockSize, method, depth + 1);
-        node->children[2] = buildQuadTree(data, x, y + halfSize, halfSize, threshold, minBlockSize, method, depth + 1);
-        node->children[3] = buildQuadTree(data, x + halfSize, y + halfSize, halfSize, threshold, minBlockSize, method, depth + 1);
+    node->isLeaf = false;
+    int halfSize = size / 2;
+
+    node->children[0] = buildQuadTree(data, x, y, halfSize, threshold, minBlockSize, method, depth + 1);
+    node->children[1] = buildQuadTree(data, x + halfSize, y, halfSize, threshold, minBlockSize, method, depth + 1);
+    node->children[2] = buildQuadTree(data, x, y + halfSize, halfSize, threshold, minBlockSize, method, depth + 1);
+    node->children[3] = buildQuadTree(data, x + halfSize, y + halfSize, halfSize, threshold, minBlockSize, method, depth + 1);
     }
-    
+
     return node;
-}
+    }
 
 // Reconstruct the image from the QuadTree
 void reconstructImage(const QuadTreeNode* node, vector<vector<Pixel>>& outputImage) {
