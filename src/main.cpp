@@ -83,8 +83,8 @@ int main(int argc, char** argv) {
 
     // Adaptive threshold for target compression (Bonus)
     if (targetCompression > 0) {
-        double minThreshold = 10.0;
-        double maxThreshold = 500.0;
+        double minThreshold = 0.01;
+        double maxThreshold = 1000.0;
         double currentCompression = 0.0;
         int iterations = 0;
         const int MAX_ITERATIONS = 20;

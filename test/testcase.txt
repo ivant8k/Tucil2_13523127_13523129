@@ -26,20 +26,20 @@ branch.jpg
 2. Mean Absolute Deviation (MAD)
   2.1 Threshold Variation
     - Threshold: 10, 15, 20
-    - Minimum Block: 8x8 pixel (input: 8)
+    - Minimum Block: 4x4 pixel (input: 4)
     - Target Compression: Disabled (0.0)
     - Output: branch21.jpg, branch22.jpg, branch23.jpg
 
   2.2 Minimum Block Variation
-    - Threshold: 15
-    - Minimum Block: 4x4, 8x8, 16x16 pixel (input: 4, 8, 16)
+    - Threshold: 8
+    - Minimum Block: 2x2, 4x4, 8x8 pixel (input: 2, 4, 8)
     - Target Compression: Disabled (0.0)
     - Output: branch24.jpg, branch25.jpg, branch26.jpg
 
   2.3 Target Compression Percentage Variation
-    - Initial Threshold: 15
+    - Initial Threshold: 8
     - Minimum Block: 4x4 pixel (input: 4)
-    - Target Compression: 0.6, 0.7, 0.8
+    - Target Compression: 0.6, 0.7, 0.86
     - Output: branch27.jpg, branch28.jpg, branch29.jpg
 
 3. Max Pixel Difference
@@ -58,26 +58,26 @@ branch.jpg
   3.3 Target Compression Percentage Variation
     - Initial Threshold: 40
     - Minimum Block: 4x4 pixel (input: 4)
-    - Target Compression: 0.6, 0.7, 0.8
+    - Target Compression: 0.6, 0.75, 0.9
     - Output: branch37.jpg, branch38.jpg, branch39.jpg
 
 4. Entropy
   4.1 Threshold Variation
-    - Threshold: 1.0, 1.5, 2.0
-    - Minimum Block: 8x8 pixel (input: 8)
+    - Threshold: 1.5, 5, 9
+    - Minimum Block: 16x16 pixel (input: 16)
     - Target Compression: Disabled (0.0)
     - Output: branch41.jpg, branch42.jpg, branch43.jpg
 
   4.2 Minimum Block Variation
-    - Threshold: 1.5
-    - Minimum Block: 8x8, 16x16, 32x32 pixel (input: 8, 16, 32)
+    - Threshold: 3
+    - Minimum Block: 6x6, 8x8, 10x10 pixel (input: 6, 8, 10)
     - Target Compression: Disabled (0.0)
     - Output: branch44.jpg, branch45.jpg, branch46.jpg
 
   4.3 Target Compression Percentage Variation
-    - Initial Threshold: 1.5
-    - Minimum Block: 4x4 pixel (input: 4)
-    - Target Compression: 0.4, 0.5, 0.6
+    - Initial Threshold: 4.5
+    - Minimum Block: 8x8 pixel (input: 8)
+    - Target Compression: 0.75, 0.85, 0.95
     - Output: branch47.jpg, branch48.jpg, branch49.jpg
 
 =======================================
