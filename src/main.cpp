@@ -83,43 +83,42 @@ int main(int argc, char** argv) {
 
     // Adaptive threshold for target compression (Bonus)
     if (targetCompression > 0) {
-        // Start with low threshold, increase if needed
-        double minThreshold = 0.1;
-        double maxThreshold = 1000.0;
-        threshold = 10.0; // Starting point
-        
+        double minThreshold = 10.0;
+        double maxThreshold = 500.0;
         double currentCompression = 0.0;
         int iterations = 0;
-        const int MAX_ITERATIONS = 10;
+        const int MAX_ITERATIONS = 20;
+        const double STEP_FACTOR = 0.5; // Faktor langkah untuk penyesuaian proporsional
         
         while (iterations < MAX_ITERATIONS) {
-            // Build QuadTree with current threshold
             QuadTreeNode* root = buildQuadTree(imageData, 0, 0, size, threshold, minBlockSize, errorMethod);
-            
-            // Calculate nodes in tree (approximate compressed size)
             int nodes = countNodes(root);
-            size_t compressedSize = nodes * sizeof(QuadTreeNode); // Approximation
-            
-            // Calculate current compression rate
+            size_t compressedSize = nodes * sizeof(QuadTreeNode);
             currentCompression = 1.0 - (double)compressedSize / originalSize;
             
-            // Check if we're close enough to target
-            if (abs(currentCompression - targetCompression) < 0.05) {
+            cout << "Iteration " << iterations + 1 << ": Threshold = " << threshold 
+                 << ", Nodes = " << nodes << ", Compression = " << (currentCompression * 100) << "%" << endl;
+            
+            if (abs(currentCompression - targetCompression) < 0.01) {
                 cout << "Target compression reached with threshold: " << threshold << endl;
-                delete root; // Free memory
+                delete root;
                 break;
             }
             
-            // Adjust threshold
-            if (currentCompression < targetCompression) {
-                maxThreshold = threshold;
-                threshold = (minThreshold + threshold) / 2;
-            } else {
-                minThreshold = threshold;
-                threshold = (maxThreshold + threshold) / 2;
+            // Hitung error relatif
+            double error =  targetCompression - currentCompression ;
+            
+            // Sesuaikan threshold secara proporsional
+            threshold = threshold * (1.0 + STEP_FACTOR * error);
+            
+            // Pastikan threshold tetap dalam rentang
+            if (threshold < minThreshold) {
+                threshold = minThreshold;
+            } else if (threshold > maxThreshold) {
+                threshold = maxThreshold;
             }
             
-            delete root; // Free memory
+            delete root;
             iterations++;
         }
     }
