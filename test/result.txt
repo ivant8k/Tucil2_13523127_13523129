@@ -297,3 +297,4 @@ branch49.jpg
     Compression percentage: 94.08%
     Tree depth: 11
     Number of nodes: 63705
+

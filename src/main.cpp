@@ -46,11 +46,7 @@ int main(int argc, char** argv) {
 
     cout << "Enter absolute path for output image: ";
     cin >> outputFilePath;
-
-    //cout << "Enter absolute path for GIF output (leave empty to skip): ";
-    //cin.ignore(); // Clear newline
-    //getline(cin, gifOutputPath);
-
+    
     // Load image
     int imageWidth, imageHeight, imageChannels;
     unsigned char* imageBuffer = stbi_load(inputFilePath.c_str(), &imageWidth, &imageHeight, &imageChannels, 3);
@@ -138,11 +134,6 @@ int main(int argc, char** argv) {
     if (!saveQuadTreeImage(outputFilePath, outputImage)) {
         cerr << "Error: Could not save output image" << endl;
     }
-
-    // // Generate GIF if path provided
-    // if (!gifOutputPath.empty()) {
-    //     generateGif(gifOutputPath, root, imageWidth, imageHeight);
-    // }
 
     // Calculate compressed size (approximate, based on QuadTree nodes)
     size_t compressedSize = totalNodes * sizeof(QuadTreeNode); // Simple approximation

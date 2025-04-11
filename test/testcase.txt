@@ -80,5 +80,33 @@ branch.jpg
     - Target Compression: 0.75, 0.85, 0.95
     - Output: branch47.jpg, branch48.jpg, branch49.jpg
 
+
+blackwhite.jpg
+-------------
+
+1. Max Pixel Difference
+    - Threshold: 100
+    - Minimum Block: 16x16 pixel (input: 64)
+    - Target Compression: Disabled (0.0)
+    - Output: blackwhite1.jpg
+    Execution time: 21.88 seconds
+    Original image size: 11059200 bytes
+    Compressed size (approximate): 316080 bytes
+    Compression percentage: 97.14%
+    Tree depth: 8
+    Number of nodes: 6585
+
+2. Variance
+    - Threshold: 100
+    - Minimum Block: 16x16 pixel (input: 64)
+    - Target Compression: Disabled (0.0)
+    - Output: blackwhite2.jpg
+    Execution time: 18.60 seconds
+    Original image size: 11059200 bytes
+    Compressed size (approximate): 313200 bytes
+    Compression percentage: 97.17%
+    Tree depth: 8
+    Number of nodes: 652
+
 =======================================
 End of Test Case
