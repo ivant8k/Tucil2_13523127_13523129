@@ -46,6 +46,9 @@ Tucil2_13523127_13523129/
 |-- LICENSE       # File keterrangan lisensi
 │-- README.md     # File dokumentasi
 ```
+## Kontributor
+1. Boye Mangaratua Ginting - 13523127
+2. Ivant Samuel Silaban - 13523129
 # Catatan
 - Jika ada error saat menjalankan program, pastikan Anda berada di dalam direktori proyek yang benar.
 - Pastikan semua dependensi sudah terinstal dengan benar.
