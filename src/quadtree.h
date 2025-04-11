@@ -34,13 +34,13 @@ public:
 };
 
 // Function declarations
-double calculateVariance(const vector<vector<Pixel>>& data, int x, int y, int size);
-double calculateMAD(const vector<vector<Pixel>>& data, int x, int y, int size);
-double calculateMaxDiff(const vector<vector<Pixel>>& data, int x, int y, int size);
-double calculateEntropy(const vector<vector<Pixel>>& data, int x, int y, int size);
+double calculateVariance(vector<vector<Pixel>>& data, int x, int y, int size, Pixel avgColor);
+double calculateMAD(vector<vector<Pixel>>& data, int x, int y, int size, Pixel avgColor);
+double calculateMaxDifference(vector<vector<Pixel>>& data, int x, int y, int size);
+double calculateEntropy(vector<vector<Pixel>>& data, int x, int y, int size) ;
 BlockStats calculateBlockStats(const vector<vector<Pixel>>& data, int x, int y, int size);
 Pixel calculateAvgColor(const vector<vector<Pixel>>& data, int x, int y, int size);
-double calculateError(const vector<vector<Pixel>>& data, int x, int y, int size, int method);
+double calculateError(vector<vector<Pixel>>& data, int x, int y, int size, Pixel avgColor, int method);
 QuadTreeNode* buildQuadTree(const vector<vector<Pixel>>& data, int x, int y, int size, double threshold, int minBlockSize, int method, int depth = 0);
 void reconstructImage(const QuadTreeNode* node, vector<vector<Pixel>>& outputImage);
 bool saveQuadTreeImage(const string& filename, const vector<vector<Pixel>>& image);

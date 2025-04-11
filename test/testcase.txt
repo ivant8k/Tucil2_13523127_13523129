@@ -1,0 +1,112 @@
+Test Case for Quadtree Image Compression
+=======================================
+
+branch.jpg
+-------------
+
+1. Variance
+  1.1 Threshold Variation
+    - Threshold: 50, 75, 100
+    - Minimum Block: 8x8 pixel (input: 8)
+    - Target Compression: Disabled (0.0)
+    - Output: branch11.jpg, branch12.jpg, branch13.jpg
+
+  1.2 Minimum Block Variation
+    - Threshold: 75
+    - Minimum Block: 4x4, 8x8, 16x16 pixel (input: 4, 8, 16)
+    - Target Compression: Disabled (0.0)
+    - Output: branch14.jpg, branch15.jpg, branch16.jpg
+
+  1.3 Target Compression Percentage Variation
+    - Initial Threshold: 75
+    - Minimum Block: 4x4 pixel (input: 4)
+    - Target Compression: 0.6, 0.8, 0.9
+    - Output: branch17.jpg, branch18.jpg, branch19.jpg
+
+2. Mean Absolute Deviation (MAD)
+  2.1 Threshold Variation
+    - Threshold: 10, 15, 20
+    - Minimum Block: 4x4 pixel (input: 4)
+    - Target Compression: Disabled (0.0)
+    - Output: branch21.jpg, branch22.jpg, branch23.jpg
+
+  2.2 Minimum Block Variation
+    - Threshold: 8
+    - Minimum Block: 2x2, 4x4, 8x8 pixel (input: 2, 4, 8)
+    - Target Compression: Disabled (0.0)
+    - Output: branch24.jpg, branch25.jpg, branch26.jpg
+
+  2.3 Target Compression Percentage Variation
+    - Initial Threshold: 8
+    - Minimum Block: 4x4 pixel (input: 4)
+    - Target Compression: 0.6, 0.7, 0.86
+    - Output: branch27.jpg, branch28.jpg, branch29.jpg
+
+3. Max Pixel Difference
+  3.1 Threshold Variation
+    - Threshold: 30, 40, 50
+    - Minimum Block: 4x4 pixel (input: 4)
+    - Target Compression: Disabled (0.0)
+    - Output: branch31.jpg, branch32.jpg, branch33.jpg
+
+  3.2 Minimum Block Variation
+    - Threshold: 40
+    - Minimum Block: 4x4, 8x8, 16x16 pixel (input: 4, 8, 16)
+    - Target Compression: Disabled (0.0)
+    - Output: branch34.jpg, branch35.jpg, branch36.jpg
+
+  3.3 Target Compression Percentage Variation
+    - Initial Threshold: 40
+    - Minimum Block: 4x4 pixel (input: 4)
+    - Target Compression: 0.6, 0.75, 0.9
+    - Output: branch37.jpg, branch38.jpg, branch39.jpg
+
+4. Entropy
+  4.1 Threshold Variation
+    - Threshold: 1.5, 5, 9
+    - Minimum Block: 16x16 pixel (input: 16)
+    - Target Compression: Disabled (0.0)
+    - Output: branch41.jpg, branch42.jpg, branch43.jpg
+
+  4.2 Minimum Block Variation
+    - Threshold: 3
+    - Minimum Block: 6x6, 8x8, 10x10 pixel (input: 6, 8, 10)
+    - Target Compression: Disabled (0.0)
+    - Output: branch44.jpg, branch45.jpg, branch46.jpg
+
+  4.3 Target Compression Percentage Variation
+    - Initial Threshold: 4.5
+    - Minimum Block: 8x8 pixel (input: 8)
+    - Target Compression: 0.75, 0.85, 0.95
+    - Output: branch47.jpg, branch48.jpg, branch49.jpg
+
+
+blackwhite.jpg
+-------------
+
+1. Max Pixel Difference
+    - Threshold: 100
+    - Minimum Block: 16x16 pixel (input: 64)
+    - Target Compression: Disabled (0.0)
+    - Output: blackwhite1.jpg
+    Execution time: 21.88 seconds
+    Original image size: 11059200 bytes
+    Compressed size (approximate): 316080 bytes
+    Compression percentage: 97.14%
+    Tree depth: 8
+    Number of nodes: 6585
+
+2. Variance
+    - Threshold: 100
+    - Minimum Block: 16x16 pixel (input: 64)
+    - Target Compression: Disabled (0.0)
+    - Output: blackwhite2.jpg
+    Execution time: 18.60 seconds
+    Original image size: 11059200 bytes
+    Compressed size (approximate): 313200 bytes
+    Compression percentage: 97.17%
+    Tree depth: 8
+    Number of nodes: 652
+
+=======================================
+End of Test Case

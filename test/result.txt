@@ -1,0 +1,300 @@
+branch11.jpg
+    Execution time: 28.22 seconds
+    Original image size: 51671040 bytes
+    Compressed size (approximate): 6348720 bytes
+    Compression percentage: 87.71%
+    Tree depth: 11
+    Number of nodes: 132265
+
+branch12.jpg
+    Execution time: 30.18 seconds
+    Original image size: 51671040 bytes
+    Compressed size (approximate): 2072304 bytes
+    Compression percentage: 95.99%
+    Tree depth: 11
+    Number of nodes: 43173
+
+branch13.jpg
+    Execution time: 18.05 seconds
+    Original image size: 51671040 bytes
+    Compressed size (approximate): 1815984 bytes
+    Compression percentage: 96.49%
+    Tree depth: 11
+    Number of nodes: 37833
+
+branch14.jpg
+    Execution time: 21.24 seconds
+    Original image size: 51671040 bytes
+    Compressed size (approximate): 5055792 bytes
+    Compression percentage: 90.22%
+    Tree depth: 12
+    Number of nodes: 105329
+
+branch15.jpg
+    Execution time: 24.49 seconds
+    Original image size: 51671040 bytes
+    Compressed size (approximate): 2072304 bytes
+    Compression percentage: 95.99%
+    Tree depth: 11
+    Number of nodes: 43173
+
+branch16.jpg
+    Execution time: 25.45 seconds
+    Original image size: 51671040 bytes
+    Compressed size (approximate): 805488 bytes
+    Compression percentage: 98.44%
+    Tree depth: 10
+    Number of nodes: 16781
+
+branch17.jpg
+    Target compression reached with threshold: 47.7924
+    Execution time: 47.93 seconds
+    Original image size: 51671040 bytes
+    Compressed size (approximate): 20411760 bytes
+    Compression percentage: 60.50%
+    Tree depth: 12
+    Number of nodes: 425245
+
+branch18.jpg
+    Target compression reached with threshold: 52.2599
+    Execution time: 52.83 seconds
+    Original image size: 51671040 bytes
+    Compressed size (approximate): 15062832 bytes
+    Compression percentage: 70.85%
+    Tree depth: 12
+    Number of nodes: 313809'
+
+branch19.jpg
+    Target compression reached with threshold: 57.5605
+    Execution time: 43.71 seconds
+    Original image size: 51671040 bytes
+    Compressed size (approximate): 9853104 bytes
+    Compression percentage: 80.93%
+    Tree depth: 12
+    Number of nodes: 205273
+
+branch21.jpg
+    Execution time: 27.70 seconds
+    Original image size: 51671040 bytes
+    Compressed size (approximate): 2975856 bytes
+    Compression percentage: 94.24%
+    Tree depth: 12
+    Number of nodes: 61997
+
+branch22.jpg
+    Execution time: 14.73 seconds
+    Original image size: 51671040 bytes
+    Compressed size (approximate): 1802928 bytes
+    Compression percentage: 96.51%
+    Tree depth: 12
+    Number of nodes: 37561
+
+branch23.jpg
+    Execution time: 19.00 seconds
+    Original image size: 51671040 bytes
+    Compressed size (approximate): 1121136 bytes
+    Compression percentage: 97.83%
+    Tree depth: 12
+    Number of nodes: 23357
+
+branch24.jpg
+    Execution time: 16.83 seconds
+    Original image size: 51671040 bytes
+    Compressed size (approximate): 8583600 bytes
+    Compression percentage: 83.39%
+    Tree depth: 13
+    Number of nodes: 178825
+
+branch25.jpg
+    Execution time: 24.33 seconds
+    Original image size: 51671040 bytes
+    Compressed size (approximate): 3960240 bytes
+    Compression percentage: 92.34%
+    Tree depth: 12
+    Number of nodes: 82505
+
+branch26.jpg
+    Execution time: 15.93 seconds
+    Original image size: 51671040 bytes
+    Compressed size (approximate): 1694640 bytes
+    Compression percentage: 96.72%
+    Tree depth: 11
+    Number of nodes: 35305
+
+branch27.jpg
+    Target compression reached with threshold: 5.49508
+    Execution time: 50.53 seconds
+    Original image size: 51671040 bytes
+    Compressed size (approximate): 20601072 bytes
+    Compression percentage: 60.13%
+    Tree depth: 12
+    Number of nodes: 429189
+
+branch28.jpg
+    Target compression reached with threshold: 5.72985
+    Execution time: 37.02 seconds
+    Original image size: 51671040 bytes
+    Compressed size (approximate): 15638256 bytes
+    Compression percentage: 69.73%
+    Tree depth: 12
+    Number of nodes: 325797
+
+branch29.jpg
+    Target compression reached with threshold: 6.2856
+    Execution time: 61.90 seconds
+    Original image size: 51671040 bytes
+    Compressed size (approximate): 6869808 bytes
+    Compression percentage: 86.70%
+    Tree depth: 12
+    Number of nodes: 143121
+
+branch31.jpg
+    Execution time: 56.28 seconds
+    Original image size: 51671040 bytes
+    Compressed size (approximate): 33690864 bytes
+    Compression percentage: 34.80%
+    Tree depth: 12
+    Number of nodes: 701893
+
+branch32.jpg
+    Execution time: 19.85 seconds
+    Original image size: 51671040 bytes
+    Compressed size (approximate): 12021552 bytes
+    Compression percentage: 76.73%
+    Tree depth: 12
+    Number of nodes: 250449
+
+branch33.jpg
+    Execution time: 19.35 seconds
+    Original image size: 51671040 bytes
+    Compressed size (approximate): 5192880 bytes
+    Compression percentage: 89.95%
+    Tree depth: 12
+    Number of nodes: 108185
+
+branch34.jpg
+    Execution time: 33.91 seconds
+    Original image size: 51671040 bytes
+    Compressed size (approximate): 12021552 bytes
+    Compression percentage: 76.73%
+    Tree depth: 12
+    Number of nodes: 250449
+
+branch35.jpg
+    Execution time: 24.63 seconds
+    Original image size: 51671040 bytes
+    Compressed size (approximate): 7175472 bytes
+    Compression percentage: 86.11%
+    Tree depth: 11
+    Number of nodes: 149489
+
+branch36.jpg
+    Execution time: 20.58 seconds
+    Original image size: 51671040 bytes
+    Compressed size (approximate): 2964144 bytes
+    Compression percentage: 94.26%
+    Tree depth: 10
+    Number of nodes: 61753
+
+branch37.jpg
+    Target compression reached with threshold: 35.8485
+    Execution time: 47.25 seconds
+    Original image size: 51671040 bytes
+    Compressed size (approximate): 20404464 bytes
+    Compression percentage: 60.51%
+    Tree depth: 12
+    Number of nodes: 425093
+
+branch38.jpg
+    Target compression reached with threshold: 39.6531
+    Execution time: 35.61 seconds
+    Original image size: 51671040 bytes
+    Compressed size (approximate): 13256880 bytes
+    Compression percentage: 74.34%
+    Tree depth: 12
+    Number of nodes: 276185
+
+branch39.jpg
+    Target compression reached with threshold: 49.1907
+    Execution time: 85.31 seconds
+    Original image size: 51671040 bytes
+    Compressed size (approximate): 5502384 bytes
+    Compression percentage: 89.35%
+    Tree depth: 12
+    Number of nodes: 114633
+
+branch41.jpg
+    Execution time: 18.63 seconds
+    Original image size: 51671040 bytes
+    Compressed size (approximate): 4324080 bytes
+    Compression percentage: 91.63%
+    Tree depth: 10
+    Number of nodes: 90085
+
+branch42.jpg
+    Execution time: 21.34 seconds
+    Original image size: 51671040 bytes
+    Compressed size (approximate): 1025520 bytes
+    Compression percentage: 98.02%
+    Tree depth: 10
+    Number of nodes: 21365
+
+branch43.jpg
+    Execution time: 12.21 seconds
+    Original image size: 51671040 bytes
+    Compressed size (approximate): 48 bytes
+    Compression percentage: 100.00%
+    Tree depth: 1
+    Number of nodes: 1
+
+branch44.jpg
+    Execution time: 21.68 seconds
+    Original image size: 51671040 bytes
+    Compressed size (approximate): 17157744 bytes
+    Compression percentage: 66.79%
+    Tree depth: 11
+    Number of nodes: 357453
+
+branch45.jpg
+    Execution time: 24.35 seconds
+    Original image size: 51671040 bytes
+    Compressed size (approximate): 17157744 bytes
+    Compression percentage: 66.79%
+    Tree depth: 11
+    Number of nodes: 357453
+
+branch46.jpg
+    Execution time: 17.41 seconds
+    Original image size: 51671040 bytes
+    Compressed size (approximate): 4319856 bytes
+    Compression percentage: 91.64%
+    Tree depth: 10
+    Number of nodes: 89997
+
+branch47.jpg
+    Target compression reached with threshold: 4.47608
+    Execution time: 35.88 seconds
+    Original image size: 51671040 bytes
+    Compressed size (approximate): 12751728 bytes
+    Compression percentage: 75.32%
+    Tree depth: 11
+    Number of nodes: 265661
+
+branch48.jpg
+    Target compression reached with threshold: 4.70108
+    Execution time: 32.77 seconds
+    Original image size: 51671040 bytes
+    Compressed size (approximate): 7944048 bytes
+    Compression percentage: 84.63%
+    Tree depth: 11
+    Number of nodes: 165501
+
+branch49.jpg
+    Target compression reached with threshold: 4.92608
+    Execution time: 30.62 seconds
+    Original image size: 51671040 bytes
+    Compressed size (approximate): 3057840 bytes
+    Compression percentage: 94.08%
+    Tree depth: 11
+    Number of nodes: 63705
+
