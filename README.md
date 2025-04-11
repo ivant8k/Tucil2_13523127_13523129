@@ -25,11 +25,11 @@ cd bin
 ./quadtree
 ```
 #### Format Masukan
-Format masukan adalah sebagai berikut :
-Masukkan path untuk gambar yang ingin dikompres
-Masukkan nilai threshold serta besar minimal blok yang diinginkan.
-Masukkan nilai target kompresi (0-1) untuk mengaktifkan adaptive threshold. Masukkan 0 jika ingin menonaktifkan fitur ini.
-Masukkan path untuk hasil keluaran gambar yang sudah dikompres.
+#####Format masukan adalah sebagai berikut :
+#####Masukkan path untuk gambar yang ingin dikompres
+#####Masukkan nilai threshold serta besar minimal blok yang diinginkan.
+#####Masukkan nilai target kompresi (0-1) untuk mengaktifkan adaptive threshold. Masukkan 0 jika ingin menonaktifkan fitur ini.
+#####Masukkan path untuk hasil keluaran gambar yang sudah dikompres.
 ## Fitur
 - Kompresi gambar berbasis quadtree dengan metrik error: Variance, MAD, Max Pixel Difference, dan Entropy.
 - Konfigurasi ambang batas (threshold), ukuran blok minimum, dan target kompresi.
